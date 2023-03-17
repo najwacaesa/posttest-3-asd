@@ -1,14 +1,14 @@
 import os
 
 class Video:
-    def _init_(self, title, channel, duration):
+    def __init__(self, title, channel, duration):
         self.title = title
         self.channel = channel
         self.duration = duration
         self.next = None
 
 class Watchlist:
-    def _init_(self):
+    def __init__(self):
         self.head = None
     
     def add_video(self, title, channel, duration):
@@ -40,7 +40,7 @@ class Watchlist:
         while current is not None:
             print("Title:", current.title)
             print("Channel:", current.channel)
-            print("Duration:", current.duration)
+            print("Duration:", current.duration )
             print("-------------------------")
             current = current.next
 
@@ -49,22 +49,22 @@ class Watchlist:
         while (pilih == "y"):
             os.system("cls")
             print("===============================")
-            print("|  Menu aplikasi linked list  |")
+            print("|   Menu Watchlist Youtube    |")
             print("===============================")
-            print("1. Insert data")
-            print("2. Delete data")
-            print("5. Tampil data")
+            print("| 1. Tambah Video             |")
+            print("| 2. Hapus Video              |")
+            print("| 3. Menampilkan Watchlist    |")
             print("===============================")
             pilihan=str(input(("Silakan masukan pilihan anda: ")))
             if(pilihan=="1"):
                 os.system("cls")
-                title    = str(input("Masukan judul yang ingin anda tambahkan  : "))
-                channel  = str(input("Masukan channel yang ingin anda tambahkan: "))
-                duration = int(input("Masukan durasi yang ingin anda tambahkan : "))
+                title    = str(input("Masukan judul video         : "))
+                channel  = str(input("Masukan channel youtube     : "))
+                duration = int(input("Masukan durasi video(menit) : "))
                 self.add_video(title, channel, duration)
             elif(pilihan=="2"):
                 os.system("cls")
-                title    = str(input("Masukan judul yang ingin anda tambahkan: "))
+                title    = str(input("Masukan judul video yang ingin dihapus : "))
                 self.remove_video(title)
                 x = input("")
             elif(pilihan=="3"):
@@ -77,4 +77,3 @@ class Watchlist:
 if __name__ == "__main__":
     l = Watchlist()
     l.mainmenu()
-
